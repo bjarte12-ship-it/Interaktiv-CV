@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAV CV Interaktiv Opplæring (Nivå A2)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header / Topplinje -->
+    <header class="bg-blue-900 text-white shadow-md py-6 px-4">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="bg-blue-800 text-blue-200 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Arbeidslivskunnskap A2</span>
+                <h1 class="text-2xl sm:text-3xl font-bold mt-1">Lær å fylle ut CV på nav.no</h1>
+                <p class="text-blue-200 text-sm mt-1">En enkel guide for voksne deltakere trinn for trinn.</p>
+            </div>
+            <button type="button" onclick="resetForm()" class="bg-blue-700 hover:bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm border border-blue-600 flex items-center gap-1.5">
+                <span>🔄</span> Start på nytt
+            </button>
+        </div>
+    </header>
+
+    <!-- Hovedinnhold -->
+    <main class="max-w-4xl w-full mx-auto px-4 py-8 flex-grow">
+        
+        <!-- Velkomstkort -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8">
+            <h2 class="text-lg font-semibold text-slate-900 mb-2">👋 Velkommen til timen!</h2>
+            <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Når du søker jobb i Norge, må du registrere CV-en din på <span class="font-semibold text-blue-600">nav.no</span>. 
+                Her kan du øve deg på alle delene som NAV spør om. Kryss av og fyll ut feltene for å se hvordan din digitale CV blir!
+            </p>
+        </div>
+
+        <form id="cvForm" class="space-y-6" onsubmit="event.preventDefault();">
+
+            <!-- 1. Personalia -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">1</span>
+                        <h3 class="text-lg font-bold text-slate-800">Personalia og kontaktinformasjon</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec1_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Fornavn:</label>
+                        <input type="text" placeholder="F.eks. Fatma" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Etternavn:</label>
+                        <input type="text" placeholder="F.eks. Hansen" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">E-postadresse:</label>
+                        <input type="email" placeholder="navn@epost.no" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Telefonnummer:</label>
+                        <input type="tel" placeholder="+47 123 45 678" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block font-medium text-slate-700 mb-1">Postadresse (Gateadresse, postnummer og sted):</label>
+                        <input type="text" placeholder="F.eks. Storgata 12, 0155 Oslo" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Jobbønsker -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">2</span>
+                        <h3 class="text-lg font-bold text-slate-800">Jobbønsker</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec2_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <div class="bg-slate-50/50 p-4 rounded-lg border border-slate-200 space-y-4">
+                        <h4 class="font-semibold text-slate-800">Hva slags jobb søker du?</h4>
+                        
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">1. Hvilke yrkeskategorier søker du innenfor? (Velg én eller flere):</label>
+                            <div id="industryCheckboxContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 bg-white p-3 rounded-lg border border-slate-200 max-h-48 overflow-y-auto">
+                                <!-- Genereres dynamisk via JS -->
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">2. Velg eller legg til spesifikke yrker:</label>
+                            <div class="flex gap-2 mb-2">
+                                <select id="specificJobSelect" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                    <option value="">-- Velg yrke fra kategoriene over --</option>
+                                </select>
+                                <button type="button" onclick="addSelectedJob()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition text-sm whitespace-nowrap">
+                                    Legg til
+                                </button>
+                            </div>
+                            <div class="flex gap-2 mb-3">
+                                <input type="text" id="customJobInput" placeholder="Eller skriv inn yrke manuelt (f.eks. CNC-operatør)" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <button type="button" onclick="addCustomJob()" class="bg-slate-700 hover:bg-slate-800 text-white font-medium px-4 py-2 rounded-lg transition text-sm whitespace-nowrap">
+                                    Legg til eget
+                                </button>
+                            </div>
+
+                            <!-- Liste over valgte yrker -->
+                            <div class="mt-2">
+                                <span class="block text-xs font-medium text-slate-500 mb-1">Dine valgte yrker:</span>
+                                <div id="selectedJobsContainer" class="flex flex-wrap gap-2 min-h-[40px] p-2 bg-white rounded-lg border border-slate-200">
+                                    <span class="text-xs text-slate-400 italic py-1">Ingen yrker lagt til ennå.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-500 text-xs">Kryss av for hva slags arbeidstype og arbeidstid du er på jakt etter:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Arbeidstype -->
+                        <div class="bg-slate-50/50 p-4 rounded-lg border border-slate-200 space-y-3">
+                            <h4 class="font-semibold text-slate-800">Hva slags jobb søker du? (Arbeidstype)</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Fast ansettelse
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Deltid
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Midlertidig / Vikariat
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Praksis / Utplassering
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Arbeidstid -->
+                        <div class="bg-slate-50/50 p-4 rounded-lg border border-slate-200 space-y-3">
+                            <h4 class="font-semibold text-slate-800">Når vil du arbeide? (Arbeidstid)</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Dagtid
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Kveld
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Natt
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                                    Skift / Turnus
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Utdanning -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">3</span>
+                        <h3 class="text-lg font-bold text-slate-800">Utdanning</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec3_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <p class="text-slate-500 text-xs">Her skriver du utdanningen din fra Norge eller hjemlandet ditt. Du kan legge til flere utdanninger.</p>
+                    
+                    <div id="educationContainer" class="space-y-4">
+                        <div class="edu-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Utdanning 1</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Nivå på utdanning:</label>
+                                    <select class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                        <option value="">-- Velg nivå --</option>
+                                        <option>Grunnskole</option>
+                                        <option>Videregående skole</option>
+                                        <option>Fagbrev / Yrkesfag</option>
+                                        <option>Høgskole / Universitet</option>
+                                        <option>Annet</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Utdanningens navn / Fag:</label>
+                                    <input type="text" placeholder="F.eks. Helsearbeiderfag / Økonomi" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Skole / Institusjon:</label>
+                                    <input type="text" placeholder="F.eks. Oslo VGS" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Fullført år (eller 'pågående'):</label>
+                                    <input type="text" placeholder="F.eks. 2021" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="addEducation()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2.5 rounded-lg border border-slate-300 transition text-sm flex items-center justify-center gap-2">
+                        <span>➕</span> Legg til en utdanning til
+                    </button>
+                </div>
+            </section>
+
+            <!-- 4. Arbeidserfaring -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">4</span>
+                        <h3 class="text-lg font-bold text-slate-800">Arbeidserfaring</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec4_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <p class="text-slate-500 text-xs">Skriv inn jobber du har hatt tidligere (i Norge eller utlandet). Du kan legge til flere jobber.</p>
+                    
+                    <div id="workExperienceContainer" class="space-y-4">
+                        <div class="work-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Jobb 1</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Stillingstittel:</label>
+                                    <input type="text" placeholder="F.eks. Lagermedarbeider / Reperatør" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Bransje / Sektor:</label>
+                                    <select class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                        <option value="">-- Velg bransje --</option>
+                                        <option>Butikk og varehandel</option>
+                                        <option>Helse og omsorg</option>
+                                        <option>Bygg og anlegg</option>
+                                        <option>Restaurant og mat</option>
+                                        <option>Renhold og drift</option>
+                                        <option>Annet</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Fra år:</label>
+                                    <input type="text" placeholder="F.eks. 2021" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Til år (eller 'nå'):</label>
+                                    <input type="text" placeholder="F.eks. 2022" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-700 mb-1">Hovedoppgaver i jobben:</label>
+                                <textarea rows="2" placeholder="Beskriv kort hva du gjorde..." class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="addWorkExperience()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2.5 rounded-lg border border-slate-300 transition text-sm flex items-center justify-center gap-2">
+                        <span>➕</span> Legg til en jobb til
+                    </button>
+                </div>
+            </section>
+
+            <!-- 5. Kompetanse -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">5</span>
+                        <h3 class="text-lg font-bold text-slate-800">Kompetanse</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec5_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="text-sm">
+                    <label class="block font-medium text-slate-700 mb-1">Hva er du god til? (Data, IKT, praktiske ferdigheter):</label>
+                    <input type="text" placeholder="F.eks. God med datamaskiner, god til å samarbeide, nøyaktig" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+            </section>
+
+            <!-- 8. Språk -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">8</span>
+                        <h3 class="text-lg font-bold text-slate-800">Språk</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec6_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <p class="text-slate-500 text-xs">Skriv inn språkene du kan (f.eks. norsk, engelsk, morsmål). Du kan legge til flere språk.</p>
+                    
+                    <div id="languageContainer" class="space-y-4">
+                        <div class="lang-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Språk 1</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Språk:</label>
+                                    <input type="text" placeholder="F.eks. Norsk / Engelsk / Arabisk" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Nivå:</label>
+                                    <select class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                        <option value="">-- Velg nivå --</option>
+                                        <option>Nybegynner (A1-A2)</option>
+                                        <option>Godt (B1-B2)</option>
+                                        <option>Flytende (C1-C2)</option>
+                                        <option>Morsmål</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="addLanguage()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2.5 rounded-lg border border-slate-300 transition text-sm flex items-center justify-center gap-2">
+                        <span>➕</span> Legg til et språk til
+                    </button>
+                </div>
+            </section>
+
+            <!-- 9. Førerkort -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">9</span>
+                        <h3 class="text-lg font-bold text-slate-800">Førerkort</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec7_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <p class="text-slate-500 text-xs">Kryss av for hvilke førerkortklasser du har:</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse B (Personbil)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse A / A1 / A2 (Motorsykkel)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse C1 / C (Lastebil)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse D1 / D (Buss)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse BE (Bil med tilhenger)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse T (Traktor)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Klasse S (Snøscooter)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                            <span class="font-medium text-slate-700">Truckbevis (T1-T8)</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Kurs -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">10</span>
+                        <h3 class="text-lg font-bold text-slate-800">Kurs</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec8_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <p class="text-slate-500 text-xs">Skriv inn kurs du har tatt (f.eks. HMS-kurs, truckkurs, norskkurs). Du kan legge til flere kurs.</p>
+                    
+                    <div id="courseContainer" class="space-y-4">
+                        <div class="course-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Kurs 1</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Kursnavn:</label>
+                                    <input type="text" placeholder="F.eks. Truckkurs T1" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Arrangør / Kurssted:</label>
+                                    <input type="text" placeholder="F.eks. AOF / Folkeuniversitetet" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Fullført år:</label>
+                                    <input type="text" placeholder="F.eks. 2023" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-700 mb-1">Kurslengde (omfang):</label>
+                                    <input type="text" placeholder="F.eks. 3 uker / 40 timer" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="addCourse()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2.5 rounded-lg border border-slate-300 transition text-sm flex items-center justify-center gap-2">
+                        <span>➕</span> Legg til et kurs til
+                    </button>
+                </div>
+            </section>
+
+            <!-- 11. Sammendrag (nøkkelkvalifikasjoner) -->
+            <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 transition hover:shadow-md">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-sm">11</span>
+                        <h3 class="text-lg font-bold text-slate-800">Sammendrag (nøkkelkvalifikasjoner)</h3>
+                    </div>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium text-slate-600">
+                        <input type="checkbox" name="sec9_complete" class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+                        Ferdig utfylt
+                    </label>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <p class="text-slate-500 text-xs">Skriv en kort og god oppsummering av hvem du er, din erfaring og hva du kan tilby en arbeidsgiver (f.eks. på 2-4 setninger).</p>
+                    
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-lg p-3.5 space-y-2">
+                        <p class="font-semibold text-blue-900 text-xs flex items-center gap-1.5">
+                            <span>💡</span> Forslag til tekst du kan bruke eller tilpasse:
+                        </p>
+                        <p class="text-blue-800 italic bg-white p-2.5 rounded border border-blue-100 text-xs shadow-sm">
+                            «Jeg er en pålitelig og sosial person med erfaring fra [...] . Jeg snakker godt norsk, er presis og liker å samarbeide med andre.»
+                        </p>
+                    </div>
+
+                    <div>
+                        <textarea rows="4" placeholder="Skriv din egen tekst her eller ta utgangspunkt i eksemplet over..." class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Status og progresjonslinje -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-bold text-blue-900 text-base">Klare for å sjekke progresjonen?</h4>
+                    <p class="text-xs text-blue-700 mt-0.5">Kryss av boksene øverst i hver seksjon for å se hvor langt du har kommet.</p>
+                </div>
+                <div id="statusMessage" class="font-semibold text-sm text-blue-800 bg-white px-4 py-2 rounded-lg border border-blue-200 shadow-sm">
+                    0 av 9 seksjoner ferdig
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Bunnlinje -->
+    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12 text-xs">
+        <p>Utviklet for opplæring i arbeidslivskunnskap på nivå A2. Inspirert av NAV sine standarder for digital CV.</p>
+    </footer>
+
+    <!-- JavaScript Logikk -->
+    <script>
+        // Oppdater progresjon
+        const checkboxes = document.querySelectorAll('input[type="checkbox"][name$="_complete"]');
+        const statusMessage = document.getElementById('statusMessage');
+
+        function updateProgress() {
+            let checkedCount = 0;
+            checkboxes.forEach(chk => {
+                if (chk.checked) checkedCount++;
+            });
+            statusMessage.textContent = `${checkedCount} av 9 seksjoner ferdig`;
+            if(checkedCount === 9) {
+                statusMessage.className = "font-semibold text-sm text-emerald-800 bg-emerald-50 px-4 py-2 rounded-lg border border-emerald-200 shadow-sm animate-bounce";
+                statusMessage.textContent = "🎉 Flott! CV-en er klar til å sendes inn på nav.no!";
+            } else {
+                statusMessage.className = "font-semibold text-sm text-blue-800 bg-white px-4 py-2 rounded-lg border border-blue-200 shadow-sm";
+            }
+        }
+
+        checkboxes.forEach(chk => {
+            chk.addEventListener('change', updateProgress);
+        });
+
+        // Legg til ny arbeidserfaring
+        function addWorkExperience() {
+            const container = document.getElementById('workExperienceContainer');
+            const workItems = container.querySelectorAll('.work-item');
+            const newIndex = workItems.length + 1;
+
+            const newItem = document.createElement('div');
+            newItem.className = "work-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4";
+            newItem.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Jobb ${newIndex}</span>
+                    <button type="button" onclick="this.closest('.work-item').remove(); updateWorkTitles();" class="text-rose-600 hover:text-rose-800 text-xs font-medium flex items-center gap-1 bg-white px-2 py-1 rounded border border-rose-200">
+                        🗑️ Slett denne
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Stillingstittel:</label>
+                        <input type="text" placeholder="F.eks. Lagermedarbeider" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Bransje / Sektor:</label>
+                        <select class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="">-- Velg bransje --</option>
+                            <option>Butikk og varehandel</option>
+                            <option>Helse og omsorg</option>
+                            <option>Bygg og anlegg</option>
+                            <option>Restaurant og mat</option>
+                            <option>Renhold og drift</option>
+                            <option>Annet</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Fra år:</label>
+                        <input type="text" placeholder="F.eks. 2021" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Til år (eller 'nå'):</label>
+                        <input type="text" placeholder="F.eks. 2022" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Hovedoppgaver i jobben:</label>
+                    <textarea rows="2" placeholder="Beskriv kort hva du gjorde..." class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // Legg til ny utdanning
+        function addEducation() {
+            const container = document.getElementById('educationContainer');
+            const eduItems = container.querySelectorAll('.edu-item');
+            const newIndex = eduItems.length + 1;
+
+            const newItem = document.createElement('div');
+            newItem.className = "edu-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4";
+            newItem.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Utdanning ${newIndex}</span>
+                    <button type="button" onclick="this.closest('.edu-item').remove(); updateEduTitles();" class="text-rose-600 hover:text-rose-800 text-xs font-medium flex items-center gap-1 bg-white px-2 py-1 rounded border border-rose-200">
+                        🗑️ Slett denne
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Nivå på utdanning:</label>
+                        <select class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="">-- Velg nivå --</option>
+                            <option>Grunnskole</option>
+                            <option>Videregående skole</option>
+                            <option>Fagbrev / Yrkesfag</option>
+                            <option>Høgskole / Universitet</option>
+                            <option>Annet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Utdanningens navn / Fag:</label>
+                        <input type="text" placeholder="F.eks. Elektrofag / Språk" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Skole / Institusjon:</label>
+                        <input type="text" placeholder="F.eks. Universitetet i Oslo" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Fullført år (eller 'pågående'):</label>
+                        <input type="text" placeholder="F.eks. 2019" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // Legg til nytt språk
+        function addLanguage() {
+            const container = document.getElementById('languageContainer');
+            const langItems = container.querySelectorAll('.lang-item');
+            const newIndex = langItems.length + 1;
+
+            const newItem = document.createElement('div');
+            newItem.className = "lang-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4";
+            newItem.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Språk ${newIndex}</span>
+                    <button type="button" onclick="this.closest('.lang-item').remove(); updateLangTitles();" class="text-rose-600 hover:text-rose-800 text-xs font-medium flex items-center gap-1 bg-white px-2 py-1 rounded border border-rose-200">
+                        🗑️ Slett dette
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Språk:</label>
+                        <input type="text" placeholder="F.eks. Spansk / Somali" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Nivå:</label>
+                        <select class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="">-- Velg nivå --</option>
+                            <option>Nybegynner (A1-A2)</option>
+                            <option>Godt (B1-B2)</option>
+                            <option>Flytende (C1-C2)</option>
+                            <option>Morsmål</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // Legg til nytt kurs
+        function addCourse() {
+            const container = document.getElementById('courseContainer');
+            const courseItems = container.querySelectorAll('.course-item');
+            const newIndex = courseItems.length + 1;
+
+            const newItem = document.createElement('div');
+            newItem.className = "course-item p-4 rounded-lg border border-slate-200 bg-slate-50/50 relative space-y-4";
+            newItem.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-xs text-slate-500 uppercase tracking-wider">Kurs ${newIndex}</span>
+                    <button type="button" onclick="this.closest('.course-item').remove(); updateCourseTitles();" class="text-rose-600 hover:text-rose-800 text-xs font-medium flex items-center gap-1 bg-white px-2 py-1 rounded border border-rose-200">
+                        🗑️ Slett dette
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Kursnavn:</label>
+                        <input type="text" placeholder="F.eks. HMS-kurs" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Arrangør / Kurssted:</label>
+                        <input type="text" placeholder="F.eks. Bedriften" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Fullført år:</label>
+                        <input type="text" placeholder="F.eks. 2022" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Kurslengde (omfang):</label>
+                        <input type="text" placeholder="F.eks. 2 dager / 15 timer" class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // Oppdater numreringer
+        function updateWorkTitles() {
+            const container = document.getElementById('workExperienceContainer');
+            const workItems = container.querySelectorAll('.work-item');
+            workItems.forEach((item, index) => {
+                const label = item.querySelector('span.uppercase');
+                if(label) label.textContent = `Jobb ${index + 1}`;
+            });
+        }
+
+        function updateEduTitles() {
+            const container = document.getElementById('educationContainer');
+            const eduItems = container.querySelectorAll('.edu-item');
+            eduItems.forEach((item, index) => {
+                const label = item.querySelector('span.uppercase');
+                if(label) label.textContent = `Utdanning ${index + 1}`;
+            });
+        }
+
+        function updateLangTitles() {
+            const container = document.getElementById('languageContainer');
+            const langItems = container.querySelectorAll('.lang-item');
+            langItems.forEach((item, index) => {
+                const label = item.querySelector('span.uppercase');
+                if(label) label.textContent = `Språk ${index + 1}`;
+            });
+        }
+
+        function updateCourseTitles() {
+            const container = document.getElementById('courseContainer');
+            const courseItems = container.querySelectorAll('.course-item');
+            courseItems.forEach((item, index) => {
+                const label = item.querySelector('span.uppercase');
+                if(label) label.textContent = `Kurs ${index + 1}`;
+            });
+        }
+
+        // Dynamisk liste over bransjer og yrker
+        const jobCategoriesData = [
+            { id: "butikk", name: "Butikk og varehandel", jobs: ["Butikkmedarbeider", "Kasserer", "Avdelingsleder", "Saksbehandler salg"] },
+            { id: "helse", name: "Helse, pleie og omsorg", jobs: ["Helsearbeider / Helsefagarbeider", "Sykepleier", "Pleieassistent", "Hjemmehjelp"] },
+            { id: "bygg", name: "Bygg og anlegg", jobs: ["Tømrer", "Snekker", "Murer", "Rørlegger", "Bygningsarbeider"] },
+            { id: "mat", name: "Reiseliv, restaurant og mat", jobs: ["Kokk", "Kjøkkenhjelp", "Servitør", "Baker / Konditor", "Renholder hotell"] },
+            { id: "transport", name: "Transport og logistikk (sjåfør, lager)", jobs: ["Lager- og terminalarbeider", "Truckfører", "Godssjåfør", "Bussjåfør", "Budbilsjåfør"] },
+            { id: "renhold", name: "Renhold og drift", jobs: ["Renholder", "Vaktmester", "Driftsoperatør", "Renholdsleder"] },
+            { id: "barnehage", name: "Undervisning og barnehage", jobs: ["Barnehageassistent", "Fagarbeider barn og ungdom", "Lærer", "SFO-medarbeider"] },
+            { id: "kontor", name: "Administrasjon, økonomi og kontor", jobs: ["Kontormedarbeider", "Regnskapsfører", "Resepsjonist", "Kundeservicebehandler"] },
+            { id: "it", name: "IT og data", jobs: ["IT-konsulent", "Systemutvikler", "IT-support", "Webutvikler"] },
+            { id: "annet", name: "Annet", jobs: ["Annet yrke"] }
+        ];
+
+        let selectedJobsList = [];
+
+        function initIndustryCheckboxes() {
+            const container = document.getElementById('industryCheckboxContainer');
+            container.innerHTML = '';
+            jobCategoriesData.forEach(cat => {
+                const label = document.createElement('label');
+                label.className = "flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded cursor-pointer text-xs";
+                label.innerHTML = `
+                    <input type="checkbox" value="${cat.id}" onchange="updateJobDropdowns()" class="w-4 h-4 text-blue-600 rounded border-slate-300">
+                    <span>${cat.name}</span>
+                `;
+                container.appendChild(label);
+            });
+        }
+
+        function updateJobDropdowns() {
+            const checkboxes = document.querySelectorAll('#industryCheckboxContainer input[type="checkbox"]:checked');
+            const specificJobSelect = document.getElementById('specificJobSelect');
+            
+            const selectedCatIds = Array.from(checkboxes).map(chk => chk.value);
+
+            specificJobSelect.innerHTML = '<option value="">-- Velg yrke fra valgte kategorier --</option>';
+
+            if (selectedCatIds.length === 0) {
+                specificJobSelect.innerHTML = '<option value="">-- Velg yrkeskategori først --</option>';
+                return;
+            }
+
+            jobCategoriesData.forEach(cat => {
+                if (selectedCatIds.includes(cat.id)) {
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = cat.name;
+                    cat.jobs.forEach(job => {
+                        const option = document.createElement('option');
+                        option.value = job;
+                        option.textContent = job;
+                        optgroup.appendChild(option);
+                    });
+                    specificJobSelect.appendChild(optgroup);
+                }
+            });
+        }
+
+        function addSelectedJob() {
+            const select = document.getElementById('specificJobSelect');
+            const jobVal = select.value;
+            if(!jobVal) return;
+            if(!selectedJobsList.includes(jobVal)) {
+                selectedJobsList.push(jobVal);
+                renderSelectedJobs();
+            }
+            select.value = "";
+        }
+
+        function addCustomJob() {
+            const input = document.getElementById('customJobInput');
+            const jobVal = input.value.trim();
+            if(!jobVal) return;
+            if(!selectedJobsList.includes(jobVal)) {
+                selectedJobsList.push(jobVal);
+                renderSelectedJobs();
+            }
+            input.value = "";
+        }
+
+        function removeJob(jobName) {
+            selectedJobsList = selectedJobsList.filter(j => j !== jobName);
+            renderSelectedJobs();
+        }
+
+        function renderSelectedJobs() {
+            const container = document.getElementById('selectedJobsContainer');
+            if(selectedJobsList.length === 0) {
+                container.innerHTML = '<span class="text-xs text-slate-400 italic py-1">Ingen yrker lagt til ennå.</span>';
+                return;
+            }
+            container.innerHTML = '';
+            selectedJobsList.forEach(job => {
+                const badge = document.createElement('span');
+                badge.className = "inline-flex items-center gap-1.5 bg-blue-50 text-blue-800 text-xs font-medium px-2.5 py-1 rounded-full border border-blue-200";
+                badge.innerHTML = `
+                    <span>${job}</span>
+                    <button type="button" onclick="removeJob('${job.replace(/'/g, "\\'")}')" class="text-blue-500 hover:text-rose-600 font-bold">×</button>
+                `;
+                container.appendChild(badge);
+            });
+        }
+
+        // Initialisering ved oppstart
+        window.addEventListener('DOMContentLoaded', () => {
+            initIndustryCheckboxes();
+        });
+
+        // Nullstill skjemaet
+        function resetForm() {
+            document.getElementById('cvForm').reset();
+            selectedJobsList = [];
+            renderSelectedJobs();
+            initIndustryCheckboxes();
+            updateJobDropdowns();
+            
+            const workContainer = document.getElementById('workExperienceContainer');
+            const workItems = workContainer.querySelectorAll('.work-item');
+            for(let i = 1; i < workItems.length; i++) { workItems[i].remove(); }
+
+            const eduContainer = document.getElementById('educationContainer');
+            const eduItems = eduContainer.querySelectorAll('.edu-item');
+            for(let i = 1; i < eduItems.length; i++) { eduItems[i].remove(); }
+
+            const langContainer = document.getElementById('languageContainer');
+            const langItems = langContainer.querySelectorAll('.lang-item');
+            for(let i = 1; i < langItems.length; i++) { langItems[i].remove(); }
+
+            const courseContainer = document.getElementById('courseContainer');
+            const courseItems = courseContainer.querySelectorAll('.course-item');
+            for(let i = 1; i < courseItems.length; i++) { courseItems[i].remove(); }
+
+            updateProgress();
+        }
+    </script>
+</body>
+</html>
